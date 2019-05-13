@@ -7,11 +7,10 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 import controller.Menucontroller;
+import view.MenuView;
 
 public class Run {
 	public static void main(String[] args) {
-		Menucontroller menucontroller = new Menucontroller();
-		
+		MenuView menuView = new MenuView();
 	}
-
 }

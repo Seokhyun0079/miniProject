@@ -6,7 +6,11 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.table.JTableHeader;
 
-public class GuiTest extends JFrame {
+import controller.Menucontroller;
+import model.vo.Susi;
+
+public class MenuView extends JFrame {
+	Menucontroller menucontroller = new Menucontroller();
 	Container con;
 	JPanel panel1_1;	// 메뉴
 	JPanel panel1_2;	// 메뉴
@@ -26,11 +30,10 @@ public class GuiTest extends JFrame {
 	JScrollPane scrollPane = new JScrollPane(table);
 //	JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 	
-	public GuiTest()	{
+	public MenuView()	{
 		super("GUI_TEST_miniProject");
 		super.setSize(1295, 950);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		scrollPane.setSize(480, 600);
 		scrollPane.setLocation(800, 100);
 		
@@ -64,8 +67,18 @@ public class GuiTest extends JFrame {
 		con.add(panel5);
 		
 
-		for(int i=0; i<14; i++)
-			panel1_1.add(new JButton());
+//		ImageIcon imageIcon = new ImageIcon("Image/button.png");
+//		for(int i=0; i<14; i++)
+//			panel1_1.add(new JButton());
+		
+		for(Susi s : menucontroller.getSusiList()){
+			ImageIcon imageIcon = new ImageIcon("D:\\JavaProject\\miniProject\\src\\susiImages\\"+s.getMmenuImage());
+			Image image = imageIcon.getImage();
+			Image newimg = image.getScaledInstance( 270, 320,  java.awt.Image.SCALE_SMOOTH ) ;  
+			imageIcon = new ImageIcon( newimg );
+			panel1_1.add(new JButton("", imageIcon));
+		}
+
 		
 		for(String str:payment)
 			panel3.add(new JButton(str));
@@ -77,7 +90,7 @@ public class GuiTest extends JFrame {
 	}
 
 	class UpPanel extends JPanel	{
-		private GuiTest gt;
+		private MenuView gt;
 		public UpPanel()	{
 			setSize(800, 100);
 			setLocation(0, 0);
