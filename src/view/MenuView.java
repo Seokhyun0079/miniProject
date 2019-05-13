@@ -74,7 +74,7 @@ public class MenuView extends JFrame {
 		for(Susi s : menucontroller.getSusiList()){
 			ImageIcon imageIcon = new ImageIcon("D:\\JavaProject\\miniProject\\src\\susiImages\\"+s.getMmenuImage());
 			Image image = imageIcon.getImage();
-			Image newimg = image.getScaledInstance( 270, 320,  java.awt.Image.SCALE_SMOOTH ) ;  
+			Image newimg = image.getScaledInstance( 270, 240,  java.awt.Image.SCALE_SMOOTH ) ;  
 			imageIcon = new ImageIcon( newimg );
 			panel1_1.add(new JButton("", imageIcon));
 		}
