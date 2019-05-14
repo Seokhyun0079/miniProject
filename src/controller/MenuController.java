@@ -4,12 +4,17 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
-import model.vo.Susi;
+import model.vo.Food;
 
-public class Menucontroller {
-	private ArrayList<Susi> susiList = new ArrayList<>();
-	public Menucontroller() {//스시 삽입 메소드
+public class MenuController {
+	private ArrayList<Food> susiList = new ArrayList<>();
+	Map<Food, Integer> orderMap = new HashMap<>();
+	public MenuController() {//스시 삽입 메소드
 		try{
 			//파일 객체 생성
 			File file1 = new File("D:\\JavaProject\\miniProject\\src\\menuTextFiles\\menuTitle.txt");
@@ -31,7 +36,7 @@ public class Menucontroller {
 				menuPrice = in2.readLine();
 				menuImage = in3.readLine();
 				System.out.println(menuTitle + " " + menuPrice + " " + menuImage);
-				susiList.add(new Susi(menuTitle, menuImage, Integer.parseInt(menuPrice)));
+				susiList.add(new Food(menuTitle, menuImage, Integer.parseInt(menuPrice)));
 			}
 			in.close();
 			in2.close();
@@ -39,16 +44,30 @@ public class Menucontroller {
 			filereader.close();
 			filereader2.close();
 			filereader3.close();
-
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}    // TODO: handle exception
 	}
-	public ArrayList<Susi> getSusiList() {
+	public ArrayList<Food> getSusiList() {
 		return susiList;
 	}
-	public void setSusiList(ArrayList<Susi> susiList) {
+	public void setSusiList(ArrayList<Food> susiList) {
 		this.susiList = susiList;
 	}
-	
+	public void orederFood(Food food){
+		if(orderMap.get(food)==null)orderMap.put(food, 1);
+		else orderMap.put(food, orderMap.get(food)+1);
+		System.out.println("size " + orderMap.size() + " " + orderMap.get(food));
+	}
+	public int calcOrder(){
+		 Iterator<Food> mapIter = orderMap.keySet().iterator();
+		 int result = 0;
+		 while(mapIter.hasNext()){
+			 Food food = mapIter.next();
+			 int count = orderMap.get(food);
+			 result += food.getPrice()*count;
+		 }
+		 return result;
+	}
 }

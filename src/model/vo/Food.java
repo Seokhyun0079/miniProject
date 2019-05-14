@@ -1,16 +1,16 @@
 package model.vo;
 
-public class Susi {
+public class Food {
 
 	private String menuTitle;
 	private String menuImage;
 	private int price;
 
-	public Susi() {
+	public Food() {
 
 	}
 
-	public Susi(String menuTitle, String menuImage, int price) {
+	public Food(String menuTitle, String menuImage, int price) {
 		super();
 		this.menuTitle = menuTitle;
 		this.menuImage = menuImage;

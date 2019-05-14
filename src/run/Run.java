@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-import controller.Menucontroller;
+import controller.MenuController;
 import view.MenuView;
 
 public class Run {
