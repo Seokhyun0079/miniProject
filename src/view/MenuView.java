@@ -17,7 +17,7 @@ public class MenuView extends JFrame {
 	JPanel panel3;		// 주문
 	JPanel panel4;		// 메뉴카테고리
 	JPanel panel5;
-
+	//테스트 push용 코드변경
 	String[] payment = {"현금", "카드", "취소"};
 	String[] header = {"품목", "수량", "가격", "변경"};
 	String[][] contents = new String[15][4];
