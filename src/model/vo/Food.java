@@ -40,10 +40,10 @@ public class Food {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	
+
 	public String toString(){
 		return menuTitle + " " + price + " " +menuImage;
 	}
-	
-	
+
+
 }
