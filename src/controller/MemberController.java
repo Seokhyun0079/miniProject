@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import model.vo.Member;
 
 public class MemberController {
-   private ArrayList<Member> memberList = new ArrayList<>();// <Member>°´Ã¼¸¸ ¹ŞÀ» ¼ö ÀÖ´Â ¾î·¹ÀÌ ¸®½ºÆ® ¼±¾ğ
+   private ArrayList<Member> memberList = new ArrayList<>();// <Member>ê°ì²´ë§Œ ë°›ì„ ìˆ˜ ìˆëŠ” ì–´ë ˆì´ ë¦¬ìŠ¤íŠ¸ ì„ ì–¸
    private static final MemberController MEMBER_CONTROLLER = new MemberController();
    private MemberController() {
       memberInit("./src/memberTextFiles/member.txt", memberList);
@@ -19,18 +19,18 @@ public class MemberController {
       try(BufferedReader memberBufferedReader 
             = new BufferedReader(new FileReader(new File(address)));)
       {
-         // ÅØ½ºÆ®ÆÄÀÏ¿¡ ÀÔ·ÂµÈ Á¤º¸¸¦ ÀÓ½Ã·Î ÀúÀåÇÒ º¯¼ö ¼±¾ğ
+         // í…ìŠ¤íŠ¸íŒŒì¼ì— ì…ë ¥ëœ ì •ë³´ë¥¼ ì„ì‹œë¡œ ì €ì¥í•  ë³€ìˆ˜ ì„ ì–¸
          String memberName;
          String memberNumber;
          String memberPoint;
-         //°í¸íºó,"01000000000",30000 Çü½ÄÀ¸·Î ÅØ½ºÆ® ÆÄÀÏ ÀúÀåµÇÀÖÀ½
+         //ê³ ëª…ë¹ˆ,"01000000000",30000 í˜•ì‹ìœ¼ë¡œ í…ìŠ¤íŠ¸ íŒŒì¼ ì €ì¥ë˜ìˆìŒ
          while ((memberName = memberBufferedReader.readLine()) != null) {
             String[] spt = memberName.split(",");
             memberName = spt[0];
             memberNumber = spt[1];
             memberPoint = spt[2];
             memberList.add(new Member(memberName, memberNumber, Integer.parseInt(memberPoint)));
-         }//','¸¦ ±âÁØÀ¸·Î splitÇØ¼­ °¢°¢ÀÇ Name, Number, Point¿¡ ÀúÀå
+         }//','ë¥¼ ê¸°ì¤€ìœ¼ë¡œ splití•´ì„œ ê°ê°ì˜ Name, Number, Pointì— ì €ì¥
 
       } catch (Exception e) {
          e.printStackTrace();
@@ -41,38 +41,38 @@ public class MemberController {
       return memberList;
    }
 
-   ////////////////////////////////////////Æ÷ÀÎÆ® Àû¸³/////////////////////////////////////////////
+   ////////////////////////////////////////í¬ì¸íŠ¸ ì ë¦½/////////////////////////////////////////////
    public void sendSavingMethod(Member m, int totalAmount) {
       int i = memberCheck(m.getMemberNumber());
       if (i==-1) {
          newPointSaving(m, totalAmount);
-         System.out.println("½Å±ÔÈ¸¿ø ¸Ş¼Òµå ½ÇÇà");
+         System.out.println("ì‹ ê·œíšŒì› ë©”ì†Œë“œ ì‹¤í–‰");
       } else {
          visitedPointSaving(i, totalAmount);
-         System.out.println("±âÁ¸È¸¿ø ¸Ş¼Òµå ½ÇÇà");
+         System.out.println("ê¸°ì¡´íšŒì› ë©”ì†Œë“œ ì‹¤í–‰");
       }
    }
 
-   public int memberCheck(String number) {// ±âÁ¸È¸¿øÀÎÁö ½Å±ÔÈ¸¿øÀÎÁö ÆÇº°ÇÏ´Â ¸Ş¼Òµå 
-                                 // ±âÁ¸È¸¿øÀÌ¸é ¸®ÅÏ°ªÀ¸·Î ±âÁ¸È¸¿ø ÀÎµ¦½º°ªÀ» ¹İÈ¯ÇÑ´Ù
+   public int memberCheck(String number) {// ê¸°ì¡´íšŒì›ì¸ì§€ ì‹ ê·œíšŒì›ì¸ì§€ íŒë³„í•˜ëŠ” ë©”ì†Œë“œ 
+                                 // ê¸°ì¡´íšŒì›ì´ë©´ ë¦¬í„´ê°’ìœ¼ë¡œ ê¸°ì¡´íšŒì› ì¸ë±ìŠ¤ê°’ì„ ë°˜í™˜í•œë‹¤
 
-      int check = -1;//index°ª 0ºÎÅÍ ½ÃÀÛÇÏ±â¶§¹®¿¡ -1·Î ÃÊ±âÈ­
+      int check = -1;//indexê°’ 0ë¶€í„° ì‹œì‘í•˜ê¸°ë•Œë¬¸ì— -1ë¡œ ì´ˆê¸°í™”
 
       for (int i = 0; i < memberList.size(); i++) {
          if (memberList.get(i).getMemberNumber().equals(number)) {
-            check = i;// µ¿ÀÏÇÑ Æù¹øÈ£¸¦ °¡Áø ¸É¹ö index°ªÀ» ÀúÀå
+            check = i;// ë™ì¼í•œ í°ë²ˆí˜¸ë¥¼ ê°€ì§„ ë§´ë²„ indexê°’ì„ ì €ì¥
             break;
          }
       }
       return check;
    }
 
-   //////////////////////////////////È¸¿ø Æ÷ÀÎÆ® °»½Å ¸Ş¼Òµå///////////////////////////////////////
-   public void visitedPointSaving(int index, int totalAmount) {// ±âÁ¸È¸¿ø Æ÷ÀÎÆ® Àû¸³
+   //////////////////////////////////íšŒì› í¬ì¸íŠ¸ ê°±ì‹  ë©”ì†Œë“œ///////////////////////////////////////
+   public void visitedPointSaving(int index, int totalAmount) {// ê¸°ì¡´íšŒì› í¬ì¸íŠ¸ ì ë¦½
       memberList.get(index).setMemberPoint(memberList.get(index).getMemberPoint() + (int)(totalAmount *0.1));
    }
 
-   public void newPointSaving(Member m, int totalAmount) {// ½Å±ÔÈ¸¿ø Æ÷ÀÎÆ® Àû¸³
+   public void newPointSaving(Member m, int totalAmount) {// ì‹ ê·œíšŒì› í¬ì¸íŠ¸ ì ë¦½
       m.setMemberPoint((int) (totalAmount * 0.1));
       memberList.add(new Member(m.getMemberName(), m.getMemberNumber(), m.getMemberPoint()));
    }
@@ -87,7 +87,7 @@ public class MemberController {
             memberBufferedWriter.write(memberList.get(i).getMemberName()+",");
             memberBufferedWriter.write(memberList.get(i).getMemberNumber()+",");
             memberBufferedWriter.write(memberList.get(i).getMemberPoint()+(i != getMemberList().size()-1 ? "\n" : ""));
-            System.out.println(memberList.get(i)+"ÀÔ·Â¿Ï·á");
+            System.out.println(memberList.get(i)+"ì…ë ¥ì™„ë£Œ");
          }
 
 

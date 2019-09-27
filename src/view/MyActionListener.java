@@ -1,25 +1,16 @@
 package view;
 
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-
-import org.omg.IOP.TAG_ALTERNATE_IIOP_ADDRESS;
-
 import controller.MemberController;
 import controller.MenuController;
 import model.vo.Member;
@@ -28,8 +19,8 @@ class NullDialog extends JDialog {
    
    Container con = getContentPane();
    
-   JLabel nullD = new JLabel("¸Ş´º¸¦ ¼±ÅÃÇÏ¼¼¿ä");
-   JButton nullB = new JButton("È®ÀÎ");
+   JLabel nullD = new JLabel("ë©”ë‰´ë¥¼ ì„ íƒí•˜ì„¸ìš”");
+   JButton nullB = new JButton("í™•ì¸");
    
    NullDialog(JFrame frame, String title) {
 
@@ -63,10 +54,10 @@ class CompleteDialog extends JDialog {
    Container con = getContentPane();
    
    
-   Font f1 = new Font("µ¸¿ò", Font.BOLD, 18);
+   Font f1 = new Font("ë‹ì›€", Font.BOLD, 18);
    
-   JLabel complete = new JLabel("°áÁ¦ ¿Ï·á!");
-   JButton comp = new JButton("È®ÀÎ");
+   JLabel complete = new JLabel("ê²°ì œ ì™„ë£Œ!");
+   JButton comp = new JButton("í™•ì¸");
    
    CompleteDialog(JFrame frame, String title) {
 
@@ -105,11 +96,11 @@ class PointCheckDialog extends JDialog {
    CompleteDialog ctd;
    Container con = getContentPane();
    
-   Font f1 = new Font("µ¸¿ò", Font.BOLD, 15);
+   Font f1 = new Font("ë‹ì›€", Font.BOLD, 15);
 
-   JLabel check = new JLabel("Æ÷ÀÎÆ® Àû¸³ ÇÏ½Ã°Ú½À´Ï±î?");
-   JButton okBt = new JButton("È®ÀÎ");
-   JButton cancleBt = new JButton("Ãë¼Ò");
+   JLabel check = new JLabel("í¬ì¸íŠ¸ ì ë¦½ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
+   JButton okBt = new JButton("í™•ì¸");
+   JButton cancleBt = new JButton("ì·¨ì†Œ");
    
    PointCheckDialog(JFrame frame, String title) {
 
@@ -133,7 +124,7 @@ class PointCheckDialog extends JDialog {
          public void actionPerformed(ActionEvent ae) {
             
             dispose();
-            pd = new PointDialog(new JFrame(), "Æ÷ÀÎÆ® Àû¸³");
+            pd = new PointDialog(new JFrame(), "í¬ì¸íŠ¸ ì ë¦½");
             pd.setVisible(true);
             
          }
@@ -156,7 +147,7 @@ class PointCheckDialog extends JDialog {
             MenuView.resultTable.setValueAt(0, 0, 1); 
             dispose();
             
-            ctd = new CompleteDialog(new JFrame(), "°áÁ¦ ¿Ï·á");
+            ctd = new CompleteDialog(new JFrame(), "ê²°ì œ ì™„ë£Œ");
             ctd.setVisible(true);
             menuC.getOrderMap().clear();
             
@@ -175,8 +166,8 @@ class ErrorPointDialog extends JDialog {
    
    Container con = getContentPane();
    
-   JLabel Error = new JLabel("Àß¸ø ÀÔ·Â ÇÏ¼Ì½À´Ï´Ù.");
-   JButton ErrorB = new JButton("È®ÀÎ");
+   JLabel Error = new JLabel("ì˜ëª» ì…ë ¥ í•˜ì…¨ìŠµë‹ˆë‹¤.");
+   JButton ErrorB = new JButton("í™•ì¸");
 
    ErrorPointDialog(JFrame frame, String title) {
 
@@ -220,16 +211,16 @@ class CheckDialog extends JDialog {
    double total2 = total*0.1;
  
 
-   Font f1 = new Font("µ¸¿ò", Font.BOLD, 15);
+   Font f1 = new Font("ë‹ì›€", Font.BOLD, 15);
 
    JLabel namelb = new JLabel(PointDialog.uName);
    JLabel accountLb = new JLabel(" "+total2);
-   JLabel name = new JLabel("´Ô !");
-   JLabel account = new JLabel("Á¡ Àû¸³µÇ¼Ì½À´Ï´Ù.");
+   JLabel name = new JLabel("ë‹˜ !");
+   JLabel account = new JLabel("ì  ì ë¦½ë˜ì…¨ìŠµë‹ˆë‹¤.");
    
 //  JLabel totalpt = new JLabel(""+mb.getMemberPoint()) ;
     
-   JButton ok = new JButton("È®ÀÎ");
+   JButton ok = new JButton("í™•ì¸");
 
    CheckDialog(JFrame frame, String title) {
       super(frame,title,true);
@@ -278,7 +269,7 @@ class CheckDialog extends JDialog {
             
             dispose();
             
-            ctd = new CompleteDialog(new JFrame(), "°áÁ¦ ¿Ï·á");
+            ctd = new CompleteDialog(new JFrame(), "ê²°ì œ ì™„ë£Œ");
             ctd.setVisible(true);
             
             
@@ -306,14 +297,14 @@ class PointDialog extends JDialog {
    static String uName;
    static String uPhone;
 
-   JLabel point = new JLabel("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä");
-   JLabel point2 = new JLabel("ÇÚµåÆù ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
-   JButton ok = new JButton("È®ÀÎ");   
-   JButton cancel = new JButton("Ãë¼Ò");
+   JLabel point = new JLabel("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”");
+   JLabel point2 = new JLabel("í•¸ë“œí° ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”");
+   JButton ok = new JButton("í™•ì¸");   
+   JButton cancel = new JButton("ì·¨ì†Œ");
    JTextField phone = new JTextField(10);
    JTextField name = new JTextField(10);
    
-   Font f1 = new Font("µ¸¿ò", Font.BOLD, 15);
+   Font f1 = new Font("ë‹ì›€", Font.BOLD, 15);
 
    PointDialog(JFrame frame, String title) {
 
@@ -384,7 +375,7 @@ class PointDialog extends JDialog {
          public void actionPerformed(ActionEvent ae) {
             
             dispose();
-            pcd = new PointCheckDialog(new JFrame(), "Æ÷ÀÎÆ® Àû¸³");
+            pcd = new PointCheckDialog(new JFrame(), "í¬ì¸íŠ¸ ì ë¦½");
             pcd.setVisible(true);
             
          }
@@ -421,21 +412,21 @@ class MyActionListener extends JFrame implements ActionListener {
    NullDialog nd;
    
    Container con;
-   String[] payment = {"Çö±İ", "Ä«µå", "Ãë¼Ò"};
+   String[] payment = {"í˜„ê¸ˆ", "ì¹´ë“œ", "ì·¨ì†Œ"};
 
-   JLabel label2 = new JLabel(" Çö±İ °áÁ¦ ÇÏ½Ã°Ú½À´Ï±î?");
-   JLabel label3  =new JLabel(" Ä«µå °áÁ¦ ÇÏ½Ã°Ú½À´Ï±î?");
-   JLabel label4 = new JLabel("Ãë¼ÒÇÏ½Ã°Ú½À´Ï±î? ");
+   JLabel label2 = new JLabel(" í˜„ê¸ˆ ê²°ì œ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
+   JLabel label3  =new JLabel(" ì¹´ë“œ ê²°ì œ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
+   JLabel label4 = new JLabel("ì·¨ì†Œí•˜ì‹œê² ìŠµë‹ˆê¹Œ? ");
 
 
-   JButton b = new JButton("È®ÀÎ");
-   JButton b2 = new JButton("Ãë¼Ò");
+   JButton b = new JButton("í™•ì¸");
+   JButton b2 = new JButton("ì·¨ì†Œ");
 
-   Font f1 = new Font("µ¸¿ò", Font.BOLD, 15);
+   Font f1 = new Font("ë‹ì›€", Font.BOLD, 15);
 
    MyActionListener() {
 
-      super("°áÁ¦Ã¢");
+      super("ê²°ì œì°½");
       con = getContentPane();
       //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       //JButton btn = new JButton("Show Dialog");
@@ -444,10 +435,10 @@ class MyActionListener extends JFrame implements ActionListener {
 
    public void actionPerformed(ActionEvent e) {
 
-      //pcd = new PointDialog(this,"Æ÷ÀÎÆ®Àû¸³");
+      //pcd = new PointDialog(this,"í¬ì¸íŠ¸ì ë¦½");
       if(menuC.calcOrder()==0)
       {
-         nd = new NullDialog(new JFrame(), "Àß¸øÀÔ·ÂÇÏ¼Ì½À´Ï´Ù.");
+         nd = new NullDialog(new JFrame(), "ì˜ëª»ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤.");
            nd.setVisible(true);
       }
       else
@@ -460,8 +451,8 @@ class MyActionListener extends JFrame implements ActionListener {
 
             public void actionPerformed(ActionEvent ae) {
 
-               dispose(); //ÇöÀçÃ¢´İ±â 
-               pcd = new PointCheckDialog(new JFrame(), "Æ÷ÀÎÆ® Àû¸³");
+               dispose(); //í˜„ì¬ì°½ë‹«ê¸° 
+               pcd = new PointCheckDialog(new JFrame(), "í¬ì¸íŠ¸ ì ë¦½");
                pcd.setVisible(true);
                //JButton b = (JButton)ae.getSource();
 
@@ -502,7 +493,7 @@ class MyActionListener extends JFrame implements ActionListener {
 
                dispose();
                
-               pcd = new PointCheckDialog(new JFrame(), "Æ÷ÀÎÆ® Àû¸³");
+               pcd = new PointCheckDialog(new JFrame(), "í¬ì¸íŠ¸ ì ë¦½");
                pcd.setVisible(true);
                
                //JButton b = (JButton)ae.getSource();

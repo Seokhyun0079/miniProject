@@ -16,25 +16,25 @@ import model.vo.Food;
 public class MenuView extends JFrame {
 	static MenuController menucontroller = MenuController.getInstance();
 	static MemberController membercontroller = MemberController.getInstance();
-	//GachaDialog gachadialog = new GachaDialog(new JFrame(), "°¡Ã­°¡Ã­!!");
+	//GachaDialog gachadialog = new GachaDialog(new JFrame(), "ê°€ì± ê°€ì± !!");
 
 	static private Container con;
-	static private JPanel[] panel1 = new JPanel[4];		// ¸Ş´º
-	static private JPanel panel2;		// °è»ê
-	static private JPanel panel3;		// ÁÖ¹®
-	static private JPanel panel4;		// ¸Ş´ºÄ«Å×°í¸®
-	static private JPanel panel5;		// ÀüÃ¼ ÆĞ³Î
+	static private JPanel[] panel1 = new JPanel[4];		// ë©”ë‰´
+	static private JPanel panel2;		// ê³„ì‚°
+	static private JPanel panel3;		// ì£¼ë¬¸
+	static private JPanel panel4;		// ë©”ë‰´ì¹´í…Œê³ ë¦¬
+	static private JPanel panel5;		// ì „ì²´ íŒ¨ë„
 
-	static final private String[] category =	{"ÃÊ¹ä", "»çÀÌµå", "ÁÖ·ù", "À½·á"};
-	static final private String[] payment = {"Çö±İ", "Ä«µå", "Ãë¼Ò"};
-	static final private String[] header1 = {"Ç°¸ñ", "¼ö·®", "°¡°İ"};
-	static final private String[] header2 = {"ÃÑ ±İ¾×", "¼ö·®"};
-	static final private String[][] contents1 = {};	// Å×ÀÌºí ÃÊ±âÈ­
+	static final private String[] category =	{"ì´ˆë°¥", "ì‚¬ì´ë“œ", "ì£¼ë¥˜", "ìŒë£Œ"};
+	static final private String[] payment = {"í˜„ê¸ˆ", "ì¹´ë“œ", "ì·¨ì†Œ"};
+	static final private String[] header1 = {"í’ˆëª©", "ìˆ˜ëŸ‰", "ê°€ê²©"};
+	static final private String[] header2 = {"ì´ ê¸ˆì•¡", "ìˆ˜ëŸ‰"};
+	static final private String[][] contents1 = {};	// í…Œì´ë¸” ì´ˆê¸°í™”
 	static final private String[][] contents2 = {{"0", "0"}};
 	static final private String[] str = new String[4];
 
-	static final private Font f_contents = new Font("¸¼Àº °íµñ", Font.PLAIN, 24);
-	static final private Font f_header = new Font("¸¼Àº °íµñ", Font.PLAIN, 24);
+	static final private Font f_contents = new Font("ë§‘ì€ ê³ ë”•", Font.PLAIN, 24);
+	static final private Font f_header = new Font("ë§‘ì€ ê³ ë”•", Font.PLAIN, 24);
 
 	@SuppressWarnings("serial")
 	static DefaultTableModel model1 = new DefaultTableModel(contents1, header1) {
@@ -80,15 +80,15 @@ public class MenuView extends JFrame {
 		table.getColumnModel().getColumn(0).setPreferredWidth(200);
 		table.getColumnModel().getColumn(1).setPreferredWidth(30);
 
-		table.getTableHeader().setReorderingAllowed(false); // ÄÃ·³µé ÀÌµ¿ ºÒ°¡
-		table.getTableHeader().setResizingAllowed(false); // ÄÃ·³ Å©±â Á¶Àı ºÒ°¡
+		table.getTableHeader().setReorderingAllowed(false); // ì»¬ëŸ¼ë“¤ ì´ë™ ë¶ˆê°€
+		table.getTableHeader().setResizingAllowed(false); // ì»¬ëŸ¼ í¬ê¸° ì¡°ì ˆ ë¶ˆê°€
 
 		resultTable.setFillsViewportHeight(true);
 		resultTable.setFont(f_contents);		
 		resultTable.setRowHeight(30);
 
-		resultTable.getTableHeader().setReorderingAllowed(false); // ÄÃ·³µé ÀÌµ¿ ºÒ°¡
-		resultTable.getTableHeader().setResizingAllowed(false); // ÄÃ·³ Å©±â Á¶Àı ºÒ°¡
+		resultTable.getTableHeader().setReorderingAllowed(false); // ì»¬ëŸ¼ë“¤ ì´ë™ ë¶ˆê°€
+		resultTable.getTableHeader().setResizingAllowed(false); // ì»¬ëŸ¼ í¬ê¸° ì¡°ì ˆ ë¶ˆê°€
 
 		scrollPane.setSize(480, 530);
 		scrollPane.setLocation(800, 100);
@@ -151,15 +151,15 @@ public class MenuView extends JFrame {
 
 			idx3++;
 		}
-		con.add(panel1[0]);	//¸Ş´ºÆÇ
+		con.add(panel1[0]);	//ë©”ë‰´íŒ
 
-		panel2 = new RightPanel();	// ÆÀ·Î°í ÀÌ¹ÌÁö
-		panel3 = new BottomPanel(payment);	// °áÁ¦Ã¢ ÆĞ³Î
-		panel4 = new UpPanel();		// ¸Ş´º Ä«Å×°í¸®
-		panel5 = new JPanel();	// ÀüÃ¼ ÆĞ³Î
+		panel2 = new RightPanel();	// íŒ€ë¡œê³  ì´ë¯¸ì§€
+		panel3 = new BottomPanel(payment);	// ê²°ì œì°½ íŒ¨ë„
+		panel4 = new UpPanel();		// ë©”ë‰´ ì¹´í…Œê³ ë¦¬
+		panel5 = new JPanel();	// ì „ì²´ íŒ¨ë„
 
-		con.add(scrollPane);	// ÁÖ¹®¼­
-		con.add(resultScrollPane);	// ÃÑ ±İ¾× 
+		con.add(scrollPane);	// ì£¼ë¬¸ì„œ
+		con.add(resultScrollPane);	// ì´ ê¸ˆì•¡ 
 		con.add(panel2);
 		con.add(panel3);
 		con.add(panel4);
@@ -287,7 +287,7 @@ public class MenuView extends JFrame {
 				JButton button = (JButton)e.getSource();
 
 				switch(e.getActionCommand())	{
-				case "ÃÊ¹ä":
+				case "ì´ˆë°¥":
 					for(JPanel jp:panel1)
 						con.remove(jp);
 					con.remove(panel5);
@@ -307,7 +307,7 @@ public class MenuView extends JFrame {
 					con.repaint();
 					break;
 
-				case "»çÀÌµå":
+				case "ì‚¬ì´ë“œ":
 					for(JPanel jp:panel1)
 						con.remove(jp);
 					con.remove(panel5);
@@ -317,7 +317,7 @@ public class MenuView extends JFrame {
 						panel1[1].add(jb_1);
 					}
 
-					for(int i=0; i<7; i++)	{	//16°³ ¹öÆ° Ã¤¿ì±â
+					for(int i=0; i<7; i++)	{	//16ê°œ ë²„íŠ¼ ì±„ìš°ê¸°
 						JButton jb_1 = new JButton(basicImg);
 						panel1[1].add(jb_1);
 					}
@@ -327,7 +327,7 @@ public class MenuView extends JFrame {
 					con.repaint();
 					break;
 
-				case "ÁÖ·ù":
+				case "ì£¼ë¥˜":
 					for(JPanel jp:panel1)
 						con.remove(jp);
 					con.remove(panel5);
@@ -346,7 +346,7 @@ public class MenuView extends JFrame {
 					con.repaint();
 					break;
 
-				case "À½·á":
+				case "ìŒë£Œ":
 					for(JPanel jp:panel1)
 						con.remove(jp);
 					con.remove(panel5);
@@ -356,7 +356,7 @@ public class MenuView extends JFrame {
 						panel1[3].add(jb_3);
 					}
 
-					for(int i=0; i<9; i++)	{	//16°³ ¹öÆ° Ã¤¿ì±â
+					for(int i=0; i<9; i++)	{	//16ê°œ ë²„íŠ¼ ì±„ìš°ê¸°
 						JButton jb_3 = new JButton(basicImg);
 						panel1[3].add(jb_3);
 					}
@@ -431,7 +431,7 @@ public class MenuView extends JFrame {
 		}
 
 		class MyDialog extends JDialog {
-			JButton okButton = new JButton(); //¹öÆ°»ı¼ºÇÏ±â 
+			JButton okButton = new JButton(); //ë²„íŠ¼ìƒì„±í•˜ê¸° 
 			MyDialog(JFrame frame,String title) {
 				super();
 				this.setSize(200, 100);

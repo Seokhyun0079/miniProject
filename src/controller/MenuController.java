@@ -24,12 +24,12 @@ public class MenuController {
       menuInit("./src/menuTextFiles/drink.txt",drinkList);
    }
    public void menuInit(String address,ArrayList<Food> arrayList) {
-           //try with resource ±â´É »ç¿ë
+           //try with resource ê¸°ëŠ¥ ì‚¬ìš©
          try(BufferedReader menuBufferedReader 
               = new BufferedReader(new FileReader(new File(address)));){
-            //º¸Á¶½ºÆ®¸² BuffeReader »ç¿ë
+            //ë³´ì¡°ìŠ¤íŠ¸ë¦¼ BuffeReader ì‚¬ìš©
             
-           // ÅØ½ºÆ®ÆÄÀÏ¿¡ ÀÔ·ÂµÈ Á¤º¸¸¦ ÀÓ½Ã·Î ÀúÀåÇÒ º¯¼ö ¼±¾ğ
+           // í…ìŠ¤íŠ¸íŒŒì¼ì— ì…ë ¥ëœ ì •ë³´ë¥¼ ì„ì‹œë¡œ ì €ì¥í•  ë³€ìˆ˜ ì„ ì–¸
             String title;
             String image;
             String price;
@@ -41,7 +41,7 @@ public class MenuController {
                image = spt[1];
                price = spt[2];
                arrayList.add(new Food(title, image, Integer.parseInt(price)));
-            }//','¸¦ ±âÁØÀ¸·Î splitÇØ¼­ °¢°¢ÀÇ title, image, price¿¡ ÀúÀå
+            }//','ë¥¼ ê¸°ì¤€ìœ¼ë¡œ splití•´ì„œ ê°ê°ì˜ title, image, priceì— ì €ì¥
 
 
          }catch (Exception e) {
@@ -49,7 +49,7 @@ public class MenuController {
          }
       }
 
-   //////////////////////¸Ş´º ¾î·¹ÀÌ¸®½ºÆ® get, ¸Ş´º ¼ö ¼¿ ¶§ ¾²¼¼¿µ(size), ¼öÁ¤Àº ¸øÇÏ°Ô get¸¸ ¸¸µé¾úÀ½//////////////////////
+   //////////////////////ë©”ë‰´ ì–´ë ˆì´ë¦¬ìŠ¤íŠ¸ get, ë©”ë‰´ ìˆ˜ ì…€ ë•Œ ì“°ì„¸ì˜(size), ìˆ˜ì •ì€ ëª»í•˜ê²Œ getë§Œ ë§Œë“¤ì—ˆìŒ//////////////////////
    public ArrayList<Food> getSusiList() {
       return susiList;
    }
