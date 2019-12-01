@@ -35,5 +35,9 @@
 
 ``./src/run/Run.java`` 실행
 
+<<<<<<< HEAD
 ##### GitHub repository
 <https://github.com/zoetrope56/miniProject>
+=======
+예지님 ㅋㄷㅋㄷ 언제 이런걸 만드럿서여
+>>>>>>> 0ff263ce0160917b6ce9cde959f824de0037da3a
